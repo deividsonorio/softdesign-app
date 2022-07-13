@@ -30,7 +30,7 @@
                     <td>{{$book->title}}</td>
                     <td>{{$book->author}}</td>
                     <td>{{$book->description}}</td>
-                    <td>{{$book->numberOfPages}}</td>
+                    <td>{{$book->pages}}</td>
                     <td><a href="{{ route('books.edit', $book->id)}}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ route('books.destroy', $book->id)}}" method="post">
