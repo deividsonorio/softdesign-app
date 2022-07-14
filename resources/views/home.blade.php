@@ -14,45 +14,24 @@
                         </div>
                     @endif
 
-                    @if(session()->get('success'))
-                        <div class="alert alert-success">
-                            {{ session()->get('success') }}
-                        </div><br />
-                    @endif
 
-                    {{ __('You are logged in!') }}
+                        <div class="row align-items-md-stretch">
+                            <div class="col-md-6">
+                                <div class="h-70 p-5 text-white bg-primary rounded-3">
+                                    <h2>Books</h2>
+                                    <p>Create, edit, update and delete books.</p>
+                                    <a class="btn btn-outline-light" type="button" href="{{ route('books.index') }}">Books list</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="h-70 p-5 bg-light border rounded-3">
+                                    <h2>Weather</h2>
+                                    <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
+                                    <button class="btn btn-outline-secondary" type="button">Example button</button>
+                                </div>
+                            </div>
+                        </div>
 
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Book Title</td>
-                                <td>Book Author</td>
-                                <td>Book Description</td>
-                                <td>Book Number of Pages</td>
-                                <td colspan="2">Action</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($books as $book)
-                                <tr>
-                                    <td>{{$book->id}}</td>
-                                    <td>{{$book->title}}</td>
-                                    <td>{{$book->author}}</td>
-                                    <td>{{$book->description}}</td>
-                                    <td>{{$book->pages}}</td>
-                                    <td><a href="{{ route('books.edit', $book->id)}}" class="btn btn-primary">Edit</a></td>
-                                    <td>
-                                        <form action="{{ route('books.destroy', $book->id)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
 
                 </div>
             </div>

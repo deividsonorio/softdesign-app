@@ -29,7 +29,7 @@ class BooksController extends Controller
     {
         $books = Books::all();
 
-        return view('home',compact('books'));
+        return view('index',compact('books'));
     }
 
     /**
@@ -116,6 +116,6 @@ class BooksController extends Controller
         $book = Books::findOrFail($id);
         $book->delete();
 
-        return redirect('/home')->with('success', 'Book data successfully deleted');
+        return redirect('/index')->with('success', 'Book data successfully deleted');
     }
 }
