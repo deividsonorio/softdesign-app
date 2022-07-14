@@ -11,6 +11,16 @@ use Illuminate\View\View;
 class BooksController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return View
@@ -19,7 +29,7 @@ class BooksController extends Controller
     {
         $books = Books::all();
 
-        return view('index',compact('books'));
+        return view('home',compact('books'));
     }
 
     /**
@@ -48,7 +58,7 @@ class BooksController extends Controller
         ]);
         $show = Books::create($validatedData);
 
-        return redirect('/books')->with('success', 'Book is successfully saved');
+        return redirect('/books')->with('success', 'Book successfully created');
     }
 
     /**
@@ -92,17 +102,20 @@ class BooksController extends Controller
         ]);
         Books::whereId($id)->update($validatedData);
 
-        return redirect('/books')->with('success', 'Book Data is successfully updated');
+        return redirect('/books')->with('success', 'Book data successfully updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse
      */
-    public function destroy(int $id): Response
+    public function destroy(int $id): RedirectResponse
     {
-        //
+        $book = Books::findOrFail($id);
+        $book->delete();
+
+        return redirect('/home')->with('success', 'Book data successfully deleted');
     }
 }
