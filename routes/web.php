@@ -19,11 +19,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('books', 'BooksController')->middleware('auth');;
+Route::post('/weather', [App\Http\Controllers\WeatherController::class, 'post'])->name('weather.post');
+
+Route::get('/weather', [App\Http\Controllers\WeatherController::class, 'get'])->name('weather.get');
+
+
+Route::resource('books', 'BooksController')->middleware('auth');
 
 
 

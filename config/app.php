@@ -123,6 +123,10 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'hg_weather_api' => env('HG_WEATHER_API'),
+
+    'hg_weather_api_key' => env('HG_WEATHER_API_KEY'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

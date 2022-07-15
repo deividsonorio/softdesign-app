@@ -26,8 +26,19 @@
                             <div class="col-md-6">
                                 <div class="h-70 p-5 bg-light border rounded-3">
                                     <h2>Weather</h2>
-                                    <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                                    <button class="btn btn-outline-secondary" type="button">Example button</button>
+                                    <p>he alignment and sizing of both column's content for equal-height.</p>
+
+                                    <form method="post" action="{{ route('weather.post') }}">
+                                        <div class="form-group">
+                                            @csrf
+                                            <label for="city">City:</label>
+                                            <input type="text" class="form-control" name="city"/>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-outline-secondary">Search</button>
+                                    </form>
+
+
                                 </div>
                             </div>
                         </div>
