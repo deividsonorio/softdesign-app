@@ -56,7 +56,7 @@ class BooksController extends Controller
             'description' => 'required|max:1000',
             'pages' => 'int|required',
         ]);
-        $show = Books::create($validatedData);
+        $success = Books::create($validatedData);
 
         return redirect('/books')->with('success', 'Book successfully created');
     }
