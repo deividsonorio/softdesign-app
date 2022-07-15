@@ -31,7 +31,7 @@
                                 <li class="list-group-item d-flex justify-content-between lh-sm">
                                     <div>
                                         <h6 class="my-0">Humidade</h6>
-                                        <small class="text-muted">Humidade atual em percentual}</small>
+                                        <small class="text-muted">Humidade atual em percentual</small>
                                     </div>
                                     <span class="text-muted"><strong>{{$weather["humidity"]}}%</strong></span>
                                 </li>
