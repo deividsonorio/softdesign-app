@@ -42,6 +42,8 @@ Um usuário é criado automaticamente ao iniciar a aplicação:
 **Usuário**: test@softdesign.com.br<br>
 **Senha**: softdesignpass
 
+É possível registrar mais usuários através do menu "Register" ou acessando diretamente http://localhost/register.
+
 ## Livros
 
 10 livros de exemplo são criados automaticamente ao iniciar a aplicação para fácil visualização inicial.
