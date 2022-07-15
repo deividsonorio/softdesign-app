@@ -58,7 +58,8 @@ Um usuário é criado automaticamente ao iniciar a aplicação:
 
 ### Observações
 
-O HG Weather tem um limite de consultas de 10 cidades diferentes por dia.
+- O HG Weather tem um limite de consultas de 10 cidades diferentes por dia.
+- Caso esse limite seja atingido, ou a cidade não seja encontrada, as informações de São Paulo serão retornadas.
 
 ### Funcionalidades que não foram implementadas devido ao tempo
 
