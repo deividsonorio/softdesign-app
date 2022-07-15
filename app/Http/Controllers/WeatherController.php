@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Providers\HGWeatherServiceProvider;
-use http\Env\Request;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class WeatherController extends Controller
@@ -25,18 +25,20 @@ class WeatherController extends Controller
      */
     public function get(): View
     {
-        $weather = HGWeatherServiceProvider::getWeatherbyCity("Curitiba");
-
-        return view('weather',compact('weather'));
+        return view('weather');
     }
 
     public function post(Request $request)
     {
-        dd($request->all());
+        $weather = null;
 
-//        $weather = HGWeatherServiceProvider::getWeatherbyCity("Curitiba");
-//
-//        return view('weather',compact('weather'));
+//        dd(rawurlencode($request->city));
+
+        if(isset($request->city)) {
+            $weather = HGWeatherServiceProvider::getWeatherbyCity($request->city);
+        }
+
+        return view('weather',compact('weather'));
     }
 
 }

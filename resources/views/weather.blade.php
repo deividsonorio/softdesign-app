@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">{{ __('Weather') }}</div>
 
-                    <div class="card-body">
+                    @if(isset($weather))
 
-                        @if ($weather)
+                    <div class="card-body">
 
                         <h4>{{ __('Weather in') }}: {{$weather["city_name"]}}</h4>
 
@@ -44,16 +44,22 @@
                                     <span class="text-muted"><strong>{{$weather["wind_speedy"]}}</strong></span>
                                 </li>
                             </ul>
+                    </div>
 
-                        @else
+                    @endif
 
-                            <div class="alert alert-danger" role="alert">
-                                Não encontrado.
+                    <div class="card-body">
+                        <form method="post" action="{{ route('weather.post') }}">
+                            <div class="form-group">
+                                @csrf
+                                <label for="city">Consultar cidade:</label>
+                                <input type="text" class="form-control" name="city"/>
                             </div>
 
-                        @endif
-
+                            <button type="submit" class="btn btn-outline-secondary">Search</button>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
